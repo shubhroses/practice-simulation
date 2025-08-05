@@ -33,10 +33,10 @@ def readiness_check():
     """Readiness check point for kubernets probes."""
     if time.time() - startup_time > 5:
         logger.info("Readiness check: Ready")
-        return jsonify({ "status": "ready" })
+        return jsonify({ "status": "ready" }), 200
     else:
         logger.info("Readiness check: Not ready")
-        return jsonify({ "status": "not ready" })        
+        return jsonify({ "status": "not ready" }), 503      
 
 @app.route("/")
 def hello():
