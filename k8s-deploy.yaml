@@ -17,6 +17,7 @@ spec:
       containers:
       - name: flask
         image: flask-demo
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
       resources:
